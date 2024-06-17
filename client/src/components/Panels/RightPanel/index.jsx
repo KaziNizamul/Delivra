@@ -1,5 +1,6 @@
 /* external imports */
 import React, { useState } from "react";
+import { useDrag } from "react-dnd";
 import {
   FaEnvelope,
   FaBell,
@@ -84,9 +85,30 @@ const RightPanel = () => {
           or edit them to customize.
         </p>
         <div className={styles.actionButtons}>
-          {filteredActions.map((action, index) => (
-            <ActionButton key={index} icon={action.icon} label={action.label} />
-          ))}
+          {filteredActions.map((action, index) => {
+            const [{ isDragging }, drag] = useDrag(() => ({
+              type: "node",
+              item: {
+                icon: action.icon,
+                label: action.label,
+                type: "action",
+              },
+              collect: (monitor) => ({
+                isDragging: !!monitor.isDragging(),
+              }),
+            }));
+
+            return (
+              <div
+                key={index}
+                ref={drag}
+                className={styles.actionButtonWrapper}
+                style={{ opacity: isDragging ? 0.5 : 1 }}
+              >
+                <ActionButton icon={action.icon} label={action.label} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -11,21 +11,31 @@ import ReactFlow, {
   ConnectionLineType,
   MiniMap,
 } from 'reactflow';
+/* internal components */
+import SendEmailNode from '../CustomNodes/SendEmail';
+import PauseNode from '../CustomNodes/Pause';
+import SendSMSNode from '../CustomNodes/SendSMS';
 /* styles */
 import 'reactflow/dist/style.css';
 import styles from './FlowChart.module.scss';
 
 const nodeTypes = {
-  action: ({ data }) => (
-    <div className={styles.node}>
-      {data.icon} {data.label}
-    </div>
-  ),
-  condition: ({ data }) => (
-    <div className={styles.node}>
-      {data.icon} {data.label}
-    </div>
-  ),
+  sendEmail: SendEmailNode,
+  pause: PauseNode,
+  sendSMS: SendSMSNode,
+};
+
+const getNodeType = (label) => {
+  switch (label) {
+    case 'Send Email':
+      return 'sendEmail';
+    case 'Pause':
+      return 'pause';
+    case 'Send SMS':
+      return 'sendSMS';
+    default:
+      return 'custom'; // fallback type
+  }
 };
 
 const connectionLineStyle = { stroke: '#b1b7be', strokeWidth: 2 };
@@ -71,12 +81,11 @@ const FlowChart = () => {
 
   const [{ isOver }, drop] = useDrop(
     () => ({
-      accept: 'node', 
+      accept: 'node',
       drop: (item, monitor) => {
-        console.log('Dropped item:', item);
-
         if (!reactFlowInstance) return;
 
+        console.log({ item })
         const reactFlowBounds =
           reactFlowWrapper.current.getBoundingClientRect();
         const position = reactFlowInstance.project({
@@ -84,9 +93,11 @@ const FlowChart = () => {
           y: monitor.getClientOffset().y - reactFlowBounds.top,
         });
 
+        const nodeType = getNodeType(item.label);
+
         const newNode = {
           id: Date.now().toString(),
-          type: item.type,
+          type: nodeType,
           position,
           data: { ...item },
         };

@@ -1,0 +1,95 @@
+.customNode {
+  border-radius: 6px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  width: 250px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sendEmail {
+  .iconContainer {
+    background-color: #e1f5fe;
+  }
+}
+
+.pause {
+  .iconContainer {
+    background-color: #f3e5f5;
+  }
+}
+
+.sendSMS {
+  .iconContainer {
+    background-color: #e8f5e9;
+  }
+}
+
+.joinPaths { 
+  background-color: #f8f9fa;
+  width: auto;
+  padding: 8px 16px;
+}
+
+.nodeHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  margin-right: 10px; 
+}
+
+.nodeTitle {
+  font-weight: 600;
+  font-size: 1rem; 
+  color: #333;     
+}
+
+.dropdownIcon {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.nodeContent {
+
+}
+
+.contentIcon {
+  font-size: 1rem; 
+  margin-right: 8px;
+}
+
+.contentLabel {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #555;        
+}
+
+.contentText {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.contentTextBold {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #333;      
+}
+
+.handle { 
+
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid #b1b7be;
+  border-radius: 50%;
+}

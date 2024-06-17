@@ -2,7 +2,7 @@
 import LeftPanel from './components/Panels/LeftPanel';
 import MidPanel from './components/Panels/MidPanel';
 import RightPanel from './components/Panels/RightPanel';
-import Header from './components/Panels/Header';
+import Header from './components/Header';
 /* styles */
 import styles from './App.module.scss';
 

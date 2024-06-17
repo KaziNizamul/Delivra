@@ -1,6 +1,8 @@
 /* internal components */
 import LeftPanel from './components/Panels/LeftPanel';
 import MidPanel from './components/Panels/MidPanel';
+import RightPanel from './components/Panels/RightPanel';
+import Header from './components/Panels/Header';
 /* styles */
 import styles from './App.module.scss';
 
@@ -11,11 +13,12 @@ const App = () => {
         <LeftPanel />
       </aside>
       <div className={styles.mainContent}>
-        <MidPanel />
+        <Header />
+        <div className={styles.content}>
+          <MidPanel />
+          <RightPanel />
+        </div>
       </div>
-      <aside className={styles.rightPanel}>
-        <h1> right </h1>
-      </aside>
     </div>
   );
 };

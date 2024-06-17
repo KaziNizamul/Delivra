@@ -1,0 +1,22 @@
+.actionButton {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  .icon {
+    margin-right: 10px;
+    font-size: 1.3rem;
+    display: flex;
+  }
+}

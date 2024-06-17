@@ -1,3 +1,76 @@
 .rightPanel {
-  width: 23%;
+  width: 25%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .closeButton {
+      font-size: 1.5rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #333;
+    }
+  }
+
+  .searchBox {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+
+    .tab {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      text-align: center;
+      cursor: pointer;
+      background-color: #f9f9f9;
+
+      &.activeTab {
+        background-color: white;
+        border-bottom: 2px solid #007bff;
+      }
+    }
+  }
+
+  .actions {
+    h3 {
+      margin-top: 0;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    .actionButtons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
 }

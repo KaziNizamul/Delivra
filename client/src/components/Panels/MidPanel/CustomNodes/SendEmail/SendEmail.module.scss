@@ -6,11 +6,11 @@
   width: 250px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: white;
+  cursor: pointer;
 
   .nodeHeader {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
 
     .iconContainer {
       display: flex;
@@ -32,29 +32,35 @@
       font-weight: 600;
       font-size: 1rem;
       color: #333;
+      flex-grow: 1;
     }
 
     .dropdownIcon {
-      margin-left: auto;
       cursor: pointer;
       font-size: 0.8rem;
     }
   }
 
   .nodeContent {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+    
     .contentIcon {
       font-size: 1rem;
       margin-right: 8px;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      font-weight: bold;
     }
 
     .contentLabel {
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #555;
     }
 
     .contentText {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #666;
     }
 
@@ -66,10 +72,11 @@
   }
 
   .handle {
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border: 1px solid #b1b7be;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border: 3px solid;
     border-radius: 50%;
+    border-color: #297cff;
   }
 }

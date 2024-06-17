@@ -1,10 +1,12 @@
+/* external imports */
+import FlowChart from './FlowChart';
 /* styles */
 import styles from './MidPanel.module.scss';
 
 const MidPanel = () => {
   return (
     <div className={styles.midPanel}>
-      Mid
+      <FlowChart />
     </div>
   );
 };

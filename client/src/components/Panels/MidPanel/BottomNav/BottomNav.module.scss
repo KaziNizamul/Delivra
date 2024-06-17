@@ -1,0 +1,46 @@
+.bottomNav {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .navItem {
+      display: flex;
+      flex-direction: row;
+      gap: 0.6rem;
+      align-items: center;
+      color: #6c757d;
+      cursor: pointer;
+
+      &.active {
+        color: #007bff;
+        border-bottom: 2px solid #007bff;
+        padding: 0.5em 0.8rem;
+      }
+
+      .navIcon {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .setupIcon {
+        color: #28a745;
+      }
+
+      span {
+        font-size: 0.9rem;
+      }
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
 const express = require('express');
-const { sendSMS } = require('../controllers/smsController');
+const { triggerSMS } = require('../controllers/smsController');
+
 const router = express.Router();
 
-router.post('/send-sms', sendSMS);
+router.post('/send', triggerSMS);
 
 module.exports = router;

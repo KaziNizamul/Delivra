@@ -1,23 +1,15 @@
-const twilio = require('twilio');
+const { sendSMS } = require('../models/smsModel');
+const { WORKFLOW_CONSTANT } = require('../WorkFlow.constant');
 
-const sendSMS = async (req, res) => {
-  const { to, text } = req.body;
-  const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+const triggerSMS = async (req, res) => {
+  const { to, message } = req.body;
 
   try {
-    await client.messages.create({
-      body: text,
-      from: process.env.TWILIO_PHONE_NUMBER,
-      to: to,
-    });
-    console.log('SMS sent');
-    res.status(200).send('SMS sent');
+    const result = await sendSMS(to, message);
+    res.status(200).send({ message: result });
   } catch (error) {
-    console.log('Error sending SMS', error);
-    res.status(500).send('Error sending SMS');
+    res.status(500).send({ error: WORKFLOW_CONSTANT.SMS.FAILED_TO_SEND_SMS });
   }
 };
 
-module.exports = {
-  sendSMS,
-};
+module.exports = { triggerSMS };

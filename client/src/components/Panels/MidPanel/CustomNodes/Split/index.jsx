@@ -1,18 +1,21 @@
 /* external imports */
 import React, { useState } from 'react';
 import { Handle } from 'reactflow';
+import { useDispatch } from 'react-redux';
 import { FaCodeBranch } from 'react-icons/fa';
+/* store */
+import { updateCondition } from '../../../../../store/slices/workFlow.slice';
 /* styles */
 import styles from './Split.module.scss';
 
-const SplitNode = ({ data }) => {
+const SplitNode = ({ data, id }) => {
+  const dispatch = useDispatch();
   const [condition, setCondition] = useState(data.condition || '');
 
   const handleConditionChange = (event) => {
-    setCondition(event.target.value);
-    if (data.onChangeCondition) {
-      data.onChangeCondition(event.target.value);
-    }
+    const newCondition = event.target.value;
+    setCondition(newCondition);
+    dispatch(updateCondition({ id, condition: newCondition }));
   };
 
   return (

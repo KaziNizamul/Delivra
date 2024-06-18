@@ -1,0 +1,38 @@
+@keyframes envelopeOpenClose {
+  0%, 100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8; /* Light background color */
+
+  .envelope {
+    width: 100px;
+    height: 60px;
+    background: #ffffff;
+    border: 2px solid #1d4a7f;
+    border-radius: 5px;
+    position: relative;
+    animation: envelopeOpenClose 2s infinite;
+
+    .envelopeFlap {
+      width: 100%;
+      height: 50%;
+      background: #1d4a7f;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      transform: rotateX(0deg);
+      animation: envelopeOpenClose 2s infinite;
+    }
+  }
+}

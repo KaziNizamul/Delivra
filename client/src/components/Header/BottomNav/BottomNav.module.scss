@@ -44,3 +44,14 @@
     }
   }
 }
+
+.loaderContainer {
+  position: absolute;
+  height: 82%;
+  width: 66%;
+  top: 8rem;
+  left: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

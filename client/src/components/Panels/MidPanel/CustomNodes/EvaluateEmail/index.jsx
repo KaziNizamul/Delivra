@@ -19,7 +19,7 @@ const EvaluateEmailNode = ({ data }) => {
         <div className={styles.iconContainer}>
           <MdContactMail className={styles.icon} />
         </div>
-        <div className={styles.nodeTitle}>Evaluate Email Contact</div>
+        <div className={styles.nodeTitle}>Evaluate Contact</div>
         <div className={styles.dropdownIcon}>
           {isCollapsed ? '▼' : '▲'}
         </div>
@@ -28,10 +28,11 @@ const EvaluateEmailNode = ({ data }) => {
         <div className={styles.nodeContent}>
           <div className={styles.contentIcon}>
             <AiOutlineUser />
+            &nbsp;
             Matched Contacts
           </div>
           <div className={styles.contentText}>
-            Registration Status is null
+            Registered for Webinar?
           </div>
         </div>
       )}

@@ -16,6 +16,7 @@ import SendEmailNode from '../CustomNodes/SendEmail';
 import PauseNode from '../CustomNodes/Pause';
 import SendSMSNode from '../CustomNodes/SendSMS';
 import EvaluateEmailNode from '../CustomNodes/EvaluateEmail';
+import SplitNode from '../CustomNodes/Split';
 /* styles */
 import 'reactflow/dist/style.css';
 import styles from './FlowChart.module.scss';
@@ -25,6 +26,7 @@ const nodeTypes = {
   pause: PauseNode,
   sendSMS: SendSMSNode,
   evaluateEmailContact: EvaluateEmailNode,
+  split: SplitNode,
 };
 
 const getNodeType = (label) => {
@@ -37,6 +39,8 @@ const getNodeType = (label) => {
       return 'sendSMS';
     case 'Evaluate Email Contact':
       return 'evaluateEmailContact';
+    case 'Split Paths':
+      return 'split';
     default:
       return 'custom'; // fallback type
   }
@@ -51,19 +55,19 @@ const FlowChart = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
   const onConnect = useCallback(
-    (params) =>
-      setEdges((els) =>
-        addEdge(
-          {
-            ...params,
-            type: 'smoothstep',
-            animated: true,
-            style: connectionLineStyle,
-          },
-          els
-        )
-      ),
-    []
+    (params) => {
+      const sourceNode = nodes.find((node) => node.id === params.source);
+      const isSplitNode = sourceNode && sourceNode.type === 'split';
+      const newEdge = {
+        ...params,
+        type: 'smoothstep',
+        animated: true,
+        style: connectionLineStyle,
+        label: isSplitNode ? (params.sourceHandle === 'yes' ? 'YES' : 'NO') : '',
+      };
+      setEdges((els) => addEdge(newEdge, els));
+    },
+    [nodes]
   );
 
   const onElementsRemove = useCallback(

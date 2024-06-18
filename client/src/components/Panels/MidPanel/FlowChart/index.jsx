@@ -15,6 +15,7 @@ import ReactFlow, {
 import SendEmailNode from '../CustomNodes/SendEmail';
 import PauseNode from '../CustomNodes/Pause';
 import SendSMSNode from '../CustomNodes/SendSMS';
+import EvaluateEmailNode from '../CustomNodes/EvaluateEmail';
 /* styles */
 import 'reactflow/dist/style.css';
 import styles from './FlowChart.module.scss';
@@ -23,6 +24,7 @@ const nodeTypes = {
   sendEmail: SendEmailNode,
   pause: PauseNode,
   sendSMS: SendSMSNode,
+  evaluateEmailContact: EvaluateEmailNode,
 };
 
 const getNodeType = (label) => {
@@ -33,6 +35,8 @@ const getNodeType = (label) => {
       return 'pause';
     case 'Send SMS':
       return 'sendSMS';
+    case 'Evaluate Email Contact':
+      return 'evaluateEmailContact';
     default:
       return 'custom'; // fallback type
   }

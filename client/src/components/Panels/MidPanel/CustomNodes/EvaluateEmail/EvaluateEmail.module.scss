@@ -1,0 +1,72 @@
+.customNode {
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  cursor: pointer;
+
+  .nodeHeader {
+    display: flex;
+    align-items: center;
+
+    .iconContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: #555;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .icon {
+      color: white;
+      font-size: 16px;
+    }
+
+    .nodeTitle {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #333;
+      flex-grow: 1;
+    }
+
+    .dropdownIcon {
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+  }
+
+  .nodeContent {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+
+    .contentIcon {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-right: 8px;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .contentText {
+      font-size: 0.75rem;
+      color: #666;
+    }
+  }
+
+  .handle {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border: 3px solid;
+    border-radius: 50%;
+    border-color: #555;
+  }
+}

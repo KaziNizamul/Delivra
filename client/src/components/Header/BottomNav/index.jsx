@@ -16,14 +16,14 @@ const BottomNav = () => {
           <FaRocket className={styles.navIcon} />
           <span>Design</span>
         </li>
-        <li className={styles.navItem}>
+        {/* <li className={styles.navItem}>
           <FaUserFriends className={styles.navIcon} />
           <span>Contacts</span>
         </li>
         <li className={styles.navItem}>
           <FaSearch className={styles.navIcon} />
           <span>Preview</span>
-        </li>
+        </li> */}
         <li className={styles.navItem}>
           <FaBug className={styles.navIcon} />
           <span>Test</span>

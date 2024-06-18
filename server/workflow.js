@@ -30,8 +30,8 @@ const triggerWorkflow = async (nodes) => {
       if (emailNode) {
         await axios.post(`http://localhost:${process.env.PORT}/api/email/send`, {
           to: process.env.RECIPIENT_EMAIL,
-          subject: 'Last call. Don\'t forget to register for tomorrow\'s webinar',
-          text: 'Register Now › Link: https://register.wbnr.com',
+          subject: `Hello Nizamul 👋🏻`,
+          text: WORKFLOW_CONSTANT.EMAIL.LAST_CALL_REMAINDER,
         });
         console.log('Email sent');
       } else {
